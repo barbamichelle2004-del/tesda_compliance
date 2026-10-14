@@ -1,0 +1,9 @@
+# Block all files starting with a dot (like .env, .git, .htaccess)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Specifically block the .env file
+<Files ".env">
+    Require all denied
+</Files>

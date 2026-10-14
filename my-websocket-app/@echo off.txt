@@ -1,0 +1,3 @@
+@echo off
+cd /d "C:\laragon\www\tesda_compliance\my-websocket-app"
+C:\laragon\bin\nodejs\node-v22\pm2.cmd resurrect

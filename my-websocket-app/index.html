@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Test</title>
+  <script src="/tesda_compliance/assets/js/socket.io.min.js"></script>
+<link rel="stylesheet" href="/tesda_compliance/assets/vendor/fonts/poppins/poppins.css">
+<link rel="stylesheet" href="/tesda_compliance/assets/vendor/fonts/poppins/poppins.css">
+<link rel="stylesheet" href="/tesda_compliance/assets/vendor/fonts/poppins/poppins.css">
+<link rel="stylesheet" href="/tesda_compliance/assets/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="/tesda_compliance/assets/css/style.css"> -->
+<link rel="stylesheet" href="/tesda_compliance/assets/css/all.min.css">
+</head>
+<body>
+  <h2>Real-Time WebSocket Test</h2>
+  <input type="text" id="messageInput" placeholder="Isulat ang mensahe...">
+  <button onclick="sendMessage()">Ipadala</button>
+
+  <ul id="messages"></ul>
+
+  <script>
+    const socket = io('http://localhost:3000');
+
+    socket.on('receive_message', (data) => {
+      const li = document.createElement('li');
+      li.textContent = data;
+      document.getElementById('messages').appendChild(li);
+    });
+
+    function sendMessage() {
+      const input = document.getElementById('messageInput');
+      if (input.value) {
+        socket.emit('send_message', input.value);
+        input.value = '';
+      }
+    }
+  </script>
+<script src="/tesda_compliance/assets/js/seamless-nav.js"></script>
+
+<script data-no-instant>
+  // InstantClick.init(); // DISABLED
+</script>
+<script src="/tesda_compliance/assets/js/jquery.min.js"></script>
+<script src="/tesda_compliance/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/tesda_compliance/assets/js/app.js"></script>
+</body>
+</html>

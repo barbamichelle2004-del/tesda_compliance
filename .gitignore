@@ -1,0 +1,20 @@
+# Ignore sensitive credentials
+.env
+
+# Ignore Composer dependencies
+vendor/
+
+# Ignore local editor settings and OS files
+.vscode/
+Thumbs.db
+.DS_Store
+# Private credentials
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated files
+node_modules/
+
+# Temporary password utility
+get_hash.php
